@@ -7,6 +7,14 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
+    "installDevDebug": "cd android && ./gradlew app:installDevDebug",
+    "installProdDebug": "cd android && ./gradlew app:installProdDebug",
+    "installStagingDebug": "cd android && ./gradlew app:installStagingDebug",
+    "android_apk_dev": "cd android && ./gradlew clean && ./gradlew assembleDevRelease",
+    "android_staging_dev": "cd android && ./gradlew clean && ./gradlew assembleStagingRelease",
+    "android_prod_dev": "cd android && ./gradlew clean && ./gradlew assembleProdRelease",
+    "android_man": "cd android && ./gradlew installDevDebug",
+    "clean:android": "cd android && ./gradlew clean",
     "test": "jest"
   },
   "dependencies": {

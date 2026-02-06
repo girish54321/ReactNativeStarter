@@ -2,7 +2,8 @@ import { NativeModules } from 'react-native';
 const Flavor = NativeModules.RNConfigModule;
 
 export function getBaseUrl() {
-    return Flavor.BASE_URL;
+    // return Flavor.BASE_URL;
+    return 'https://reqres.in/api/';
 }
 
 export function getEnvironmentVariable() {

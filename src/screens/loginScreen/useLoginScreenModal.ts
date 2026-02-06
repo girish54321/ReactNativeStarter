@@ -23,13 +23,13 @@ const useLoginScreenModal = () => {
     const nativeData = NativeModules.RNConfigModule;
 
     const authDispatch = useDispatch();
-    const { mutate } = useUserLogin();
+    const { mutate, } = useUserLogin();
 
     const saveUserLogin = async () => {
         let postData = {
             // email: 'eve.holt@reqres.in',
             // password: 'cityslicka',
-            email: '',
+            email: 'eve.holt@reqres.in',
             password: '',
         };
         mutate({ postData: postData }, {
@@ -39,15 +39,15 @@ const useLoginScreenModal = () => {
                     userLoggedIn: true,
                     userName: postData.email,
                     email: postData.email,
-                    token: data.data.token,
+                    token: data.token,
                 }));
             },
-            onError: (apiError, _variables, _context) => {
+            onError: (error) => {
                 Alert.alert(
-                    'Login Failed', `${apiError}`);
+                    'Login Failed', `${error.error}`);
             },
             onSettled: (_data, _error, _variables, _context) => {
-                console.log('On Settled');
+                console.log('On Settled', _error);
             },
         });
 

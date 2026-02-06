@@ -1,14 +1,15 @@
 import Axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
-import { getBaseUrl, getEnvironmentVariable } from '../../constants/AppConstants';
+import { getBaseUrl, getDefaultHeader, getEnvironmentVariable } from '../../constants/AppConstants';
 
 
 const defaultTimeOut = 30000;
-const DEBUG = getEnvironmentVariable();
+const DEBUG = true;
+// const DEBUG = getEnvironmentVariable();
 
 const Api = Axios.create({
     headers: {
         'Content-Type': 'application/json',
-
+        ...getDefaultHeader(),
     },
     withCredentials: true,
     timeout: defaultTimeOut,
@@ -36,7 +37,6 @@ Api.interceptors.request.use(
 
 
 Api.interceptors.response.use(
-
     (response: AxiosResponse) => {
         if (DEBUG) { console.info('Service Response', response); }
         try {
