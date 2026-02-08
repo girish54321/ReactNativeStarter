@@ -27,13 +27,14 @@ const useLoginScreenModal = () => {
 
     const saveUserLogin = async () => {
         let postData = {
-            // email: 'eve.holt@reqres.in',
-            // password: 'cityslicka',
             email: 'eve.holt@reqres.in',
-            password: '',
+            password: 'cityslicka',
+            // email: 'eve.holt@reqres.in',
+            // password: '',
         };
         mutate({ postData: postData }, {
             onSuccess: (data, _variables, _context) => {
+                console.log("data", data);
                 authDispatch(authSlice.actions.userLoginAction({
                     isLoading: false,
                     userLoggedIn: true,

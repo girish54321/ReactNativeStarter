@@ -41,7 +41,7 @@ Api.interceptors.response.use(
         if (DEBUG) { console.info('Service Response', response); }
         try {
             // Need to change after Backend changes
-            return Promise.resolve((response.data));
+            return Promise.resolve((response));
         } catch (error) {
             if (DEBUG) { console.log('Error: ', error); }
             return Promise.reject(error);
