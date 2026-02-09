@@ -37,7 +37,7 @@ describe('UsersScreen', () => {
     });
 
     it('handles login success', async () => {
-        const apiResponse = { data: { token: 'fake-token' } };
+        const apiResponse = { token: 'fake-token' };
 
         const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
         const mockDispatchFn = jest.fn();
@@ -104,7 +104,9 @@ describe('UsersScreen', () => {
     });
 
     it('Login with invalid credentials error', async () => {
-        const apiError = 'Invalid credentials';
+        const apiError = {
+            error: "Missing email or username"
+        };
 
         const mutate = jest.fn((_vars, { onError }) => {
             onError(apiError, _vars, undefined);
@@ -128,7 +130,7 @@ describe('UsersScreen', () => {
             expect(vars).toEqual({
                 postData: { email: '', password: '' },
             });
-            expect(alertSpy).toHaveBeenCalledWith('Login Failed', apiError);
+            expect(alertSpy).toHaveBeenCalledWith('Login Failed', apiError.error);
         });
     });
 });
