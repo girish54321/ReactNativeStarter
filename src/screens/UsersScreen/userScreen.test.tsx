@@ -30,6 +30,7 @@ describe('UsersScreen', () => {
         });
         const { getByText } = render(<UsersScreen />);
         expect(getByText('john.doe@example.com')).toBeTruthy();
+        expect(getByText('jane.smith@example.com')).toBeTruthy();
     });
 
     it('api with error', () => {

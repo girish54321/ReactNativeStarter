@@ -1,5 +1,5 @@
 import Axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
-import { getBaseUrl, getDefaultHeader, getEnvironmentVariable } from '../../constants/AppConstants';
+import { getBaseUrl, getDefaultHeader } from '../../constants/AppConstants';
 
 
 const defaultTimeOut = 30000;
