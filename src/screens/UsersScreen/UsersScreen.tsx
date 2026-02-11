@@ -1,22 +1,25 @@
 import React from 'react';
-import { FlatList, GestureResponderEvent, Text } from 'react-native';
+import { FlatList, GestureResponderEvent } from 'react-native';
 import { AppView } from '../../components/Flex/Flex';
 import { ListItem } from '../../components/ListItem/ListItem';
 import { navigate } from '../../navigation/NavigationService';
 import { Route } from '../../constants/Route';
 import { useUserList } from '../../Network/Querys/useUserListQuery';
 import LoadingView from '../../components/loadingView';
-import { ActivityIndicator } from 'react-native-paper';
+import { ActivityIndicator, } from 'react-native-paper';
 import getTestId from '../../Config/helper';
+import { ErrorView } from '../../components/errorView/ErrorView';
+
 
 export const UsersScreen = (_props: any) => {
-    const { data, isLoading, isError, error, fetchNextPage, hasNextPage, isFetchingNextPage } = useUserList();
+    const { data, isLoading, isError, error, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } = useUserList();
 
     if (isError) {
         return (
-            <AppView>
-                <Text>Error: {error.name}</Text>
-            </AppView>
+            <ErrorView title='Error'
+                message={error?.message ?? "Error fetching data"}
+                onRetry={refetch}
+            />
         );
     }
 

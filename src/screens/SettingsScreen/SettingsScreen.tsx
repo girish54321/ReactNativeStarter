@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, StyleSheet, View } from 'react-native';
-import { List, Switch, Text } from 'react-native-paper';
+import { List, Switch, } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
 import { DARK_THEME_TYPE, themSlice } from '../../redux/themeStore/reducers';
 import { authSlice } from '../../redux/authStore/authReducers';
@@ -10,6 +10,7 @@ import LanguageSelector from '../../components/LanguageSelector';
 import getTestId from '../../Config/helper';
 
 const LeftIcon = (props: any) => <List.Icon {...props} icon="theme-light-dark" />;
+const ExitIcon = (props: any) => <List.Icon {...props} icon="exit-to-app" />;
 
 const SettingsScreen = () => {
   const appDispatch = useDispatch();
@@ -58,13 +59,12 @@ const SettingsScreen = () => {
               value={data?.isDarkTheme} onValueChange={toggleSwitch} />
           )}
         />
-        {data?.isDarkTheme ? <Text>Dark</Text> : <Text>Light</Text>}
         <List.Item
           testID={getTestId('logout')}
           onPress={removeUser}
           title={t('logOut')}
           description={t('singOut')}
-          left={(props) => <List.Icon {...props} icon="exit-to-app" />}
+          left={ExitIcon}
         />
       </View>
     </AppView>
