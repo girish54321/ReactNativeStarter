@@ -7,6 +7,12 @@ import { WelcomeScreen } from '../../screens/welcome/WelcomeScreen';
 
 const HomeStack = createNativeStackNavigator();
 
+const TheHeader = (props: any) => {
+    return (
+        <CustomNavigationBar {...props} />
+    )
+}
+
 export const HomeScreenStack = () => {
     const { t } = useTranslation();
 
@@ -14,7 +20,7 @@ export const HomeScreenStack = () => {
         <HomeStack.Navigator
             screenOptions={{
                 title: t('starterApp'),
-                header: (props) => <CustomNavigationBar  {...props} />,
+                header: TheHeader,
             }}
         >
             {/*

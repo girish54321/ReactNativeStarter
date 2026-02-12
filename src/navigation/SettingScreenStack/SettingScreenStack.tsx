@@ -7,13 +7,19 @@ import SettingsScreen from '../../screens/SettingsScreen/SettingsScreen';
 
 const SettingStack = createNativeStackNavigator();
 
+const TheHeader = (props: any) => {
+    return (
+        <CustomNavigationBar {...props} />
+    )
+}
+
 export const SettingScreenStack = () => {
     const { t } = useTranslation();
     return (
         <SettingStack.Navigator
             screenOptions={{
                 title: t('settings'),
-                header: (props) => <CustomNavigationBar  {...props} />,
+                header: TheHeader
             }}
         >
             <SettingStack.Screen name={Route.SETTINGS} component={SettingsScreen} />

@@ -8,13 +8,19 @@ import { SelectedUserScreen } from '../../screens/UsersScreen/SelectedUser';
 
 const UserStack = createNativeStackNavigator();
 
+const TheHeader = (props: any) => {
+    return (
+        <CustomNavigationBar {...props} />
+    )
+}
+
 export const UsersListStack = () => {
     const { t } = useTranslation();
     return (
         <UserStack.Navigator
             screenOptions={{
                 title: t('users'),
-                header: (props) => <CustomNavigationBar {...props} />,
+                header: TheHeader
             }}
         >
             <UserStack.Screen name={Route.USERSCREEN} component={UsersScreen} />
