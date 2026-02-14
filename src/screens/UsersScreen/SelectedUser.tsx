@@ -7,20 +7,22 @@ import { UserList } from '../../models/responseType/UserListResponse';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withDelay, withSpring } from 'react-native-reanimated';
 
-export const SelectedUserScreen = () => {
+const AvatarAnimated = Animated.createAnimatedComponent(Avatar.Image);
 
+export const SelectedUserScreen = () => {
     const val = useSharedValue<number>(0);
 
     const animatedStyle = useAnimatedStyle(() => ({
         transform: [{ scale: interpolate(val.value, [0, 1], [0.5, 1]) }],
     }));
+
     //@ts-ignore
     const data: UserList = useRoute().params?.data;
     const navigation = useNavigation();
 
     useEffect(() => {
         navigation.setOptions({ title: `${data.first_name} ${data.last_name}` });
-        val.value = withDelay(200, withSpring(1));
+        val.value = withDelay(150, withSpring(1));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -28,10 +30,11 @@ export const SelectedUserScreen = () => {
         <AppView paddingRequired>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.profileView}>
-                    <Animated.View style={[styles.box, animatedStyle]} >
-                        {/* <Avatar.Icon size={62} icon="bug" /> */}
-                        <Avatar.Image size={scale(90)} source={{ uri: data?.avatar }} />
-                    </Animated.View>
+                    <AvatarAnimated
+                        size={scale(90)}
+                        source={{ uri: data?.avatar }}
+                        style={animatedStyle}
+                    />
                     <Text variant="headlineLarge">{data.first_name} {data.last_name}</Text>
                     <Text variant="titleLarge">{data.email}</Text>
                 </View>
