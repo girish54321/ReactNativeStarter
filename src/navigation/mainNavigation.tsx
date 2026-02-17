@@ -38,8 +38,8 @@ export const Navigation: FC = () => {
         AsyncStorage.getItem(APP_CONST.USER_LOGIN)
             .then((value) => {
                 if (value) {
-                    let data = JSON.parse(value);
-                    authDispatch(authSlice.actions.checkUserLoginAction(data));
+                    let jsonData = JSON.parse(value);
+                    authDispatch(authSlice.actions.checkUserLoginAction(jsonData));
                 } else {
                     authDispatch(authSlice.actions.checkUserLoginAction(null));
                 }

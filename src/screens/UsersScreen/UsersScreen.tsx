@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FlatList, GestureResponderEvent, StyleSheet } from 'react-native';
 import { AppView } from '../../components/Flex/Flex';
 import { ListItem } from '../../components/ListItem/ListItem';
@@ -6,68 +6,21 @@ import { navigate } from '../../navigation/NavigationService';
 import { Route } from '../../constants/Route';
 import { useUserList } from '../../Network/Querys/useUserListQuery';
 import LoadingView from '../../components/loadingView';
-import { ActivityIndicator, Appbar, IconButton, Searchbar, } from 'react-native-paper';
+import { ActivityIndicator, IconButton, } from 'react-native-paper';
 import getTestId from '../../Config/helper';
 import { ErrorView } from '../../components/errorView/ErrorView';
-import { useNavigation } from '@react-navigation/native';
-import Animated, { interpolate, useAnimatedStyle, useSharedValue, withDelay, withSpring } from 'react-native-reanimated';
+import Animated, { interpolate, useAnimatedStyle } from 'react-native-reanimated';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 
-const SearchView = Animated.createAnimatedComponent(Searchbar);
 const AnimatedListItemView = Animated.createAnimatedComponent(ListItem);
 
 export const UsersScreen = (_props: any) => {
-    const navigation = useNavigation();
-    const val = useSharedValue<number>(0);
-    const animatedStyle = useAnimatedStyle(() => ({
-        flex: interpolate(val.value, [0, 1], [0, 1]),
-    }));
     const { data, isLoading, isError, error, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } = useUserList();
-    const [isSearchActive, setIsSearchActive] = React.useState(false)
-    const [searchQuery, setSearchQuery] = React.useState("");
-
-    const onSearchIconPress = () => {
-        if (isSearchActive) {
-            val.value = withDelay(150, withSpring(0));
-            setTimeout(() => {
-                setIsSearchActive(!isSearchActive)
-            }, 600);
-            return
-        } else {
-            setIsSearchActive(!isSearchActive)
-        }
-    }
-
-    const onSearchTap = () => {
-    }
-
-    useEffect(() => {
-        navigation.setOptions({
-            // eslint-disable-next-line react/no-unstable-nested-components
-            headerTitle: (props: any) => isSearchActive ?
-                <SearchView
-                    {...props}
-                    style={[styles.searchBar, animatedStyle]}
-                    placeholder="Search"
-                    value={searchQuery}
-                    onChangeText={setSearchQuery}
-                    onSubmitEditing={onSearchTap}
-                    onClearIconPress={onSearchIconPress} /> :
-                <Appbar.Content title={"Users"} />,
-            // eslint-disable-next-line react/no-unstable-nested-components
-            headerRight: () =>
-                <Appbar.Action icon={isSearchActive ? 'close' : "magnify"} onPress={onSearchIconPress} />
-        });
-        if (isSearchActive) {
-            val.value = withDelay(150, withSpring(1));
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [navigation, isSearchActive])
-
 
     if (isError) {
         return (
-            <ErrorView title='Error'
+            <ErrorView
+                title='Error'
                 message={error?.message ?? "Error fetching data"}
                 onRetry={refetch}
             />
