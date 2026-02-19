@@ -27,10 +27,10 @@ const useLoginScreenModal = () => {
 
     const saveUserLogin = async () => {
         let postData = {
-            // email: 'eve.holt@reqres.in',
-            // password: 'cityslicka',
-            email: '',
-            password: '',
+            email: 'eve.holt@reqres.in',
+            password: 'cityslicka',
+            // email: '',
+            // password: '',
         };
         mutate({ postData: postData }, {
             onSuccess: (data, _variables, _context) => {

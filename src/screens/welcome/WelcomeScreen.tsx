@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { AppView, Column } from '../../components/Flex/Flex';
-import '../../localization';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from '../../components/Button/Button';
 import { Text } from 'react-native-paper';

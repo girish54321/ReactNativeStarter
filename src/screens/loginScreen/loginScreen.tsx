@@ -78,6 +78,7 @@ const LoginScreen = () => {
         />
         <SizedBox size={16} />
         <TouchableOpacity
+          disabled={isLoading}
           testID={getTestId('login-button')}
           style={styles.configView} onPress={saveUserLogin}>
           <Animated.View style={[styles.btnStyle, { backgroundColor: paperTheme.colors.primary }, animatedStyle]} >
