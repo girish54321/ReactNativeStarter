@@ -3,9 +3,10 @@ import axios from 'axios';
 import { getBaseUrl, getDefaultHeader } from '../../constants/AppConstants';
 import { usersUrl } from '../../constants/ServiceUrl';
 import { UserListResponse } from '../../models/responseType/UserListResponse';
+import { Api } from '../services';
 
 const fetchUser = async ({ pageParam }: { pageParam: number }) => {
-    return await axios.get<UserListResponse>(`${getBaseUrl()}${usersUrl}?page=${pageParam}`, {
+    return await Api.get<UserListResponse>(`${getBaseUrl()}${usersUrl}?page=${pageParam}`, {
         headers: getDefaultHeader(),
     },);
 };

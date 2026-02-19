@@ -38,10 +38,11 @@ describe('UsersScreen', () => {
         useInfiniteQuery.mockReturnValue({
             data: undefined,
             isError: true,
-            error: { name: 'error' },
+            error: { message: 'Error message form Backend' },
         });
         const { getByText } = render(<UsersScreen />);
-        expect(getByText('Error: error')).toBeTruthy();
+        expect(getByText('Error')).toBeTruthy();
+        expect(getByText('Error message form Backend')).toBeTruthy();
     });
 
     it('api with Loading', () => {

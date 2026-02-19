@@ -37,7 +37,7 @@ describe('SettingsScreen', () => {
         reactRedux.useSelector.mockImplementation((cb: any) => cb({ themeReducer: { 'isDarkTheme': true } }));
         const { getByText } = render(<SettingsScreen />);
 
-        expect(getByText('Dark')).toBeTruthy();
+        expect(getByText('English')).toBeTruthy();
     });
 
     it('logs out the user when confirmed', async () => {

@@ -35,13 +35,17 @@ Api.interceptors.request.use(
 * In dev, intercepts response and logs it into console for dev
 */
 
+// Helper function
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const RESPONSE_DELAY = 10000; // delay in ms
 
 Api.interceptors.response.use(
-    (response: AxiosResponse) => {
+    async (response: AxiosResponse) => {
         if (DEBUG) { console.info('Service Response', response); }
         try {
-            // Need to change after Backend changes
-            return Promise.resolve((response));
+            await delay(RESPONSE_DELAY); // ⬅️ delay added here
+            return Promise.resolve(response);
         } catch (error) {
             if (DEBUG) { console.log('Error: ', error); }
             return Promise.reject(error);

@@ -23,14 +23,14 @@ const useLoginScreenModal = () => {
     const nativeData = NativeModules.RNConfigModule;
 
     const authDispatch = useDispatch();
-    const { mutate, } = useUserLogin();
+    const { mutate, isPending } = useUserLogin();
 
     const saveUserLogin = async () => {
         let postData = {
-            email: 'eve.holt@reqres.in',
-            password: 'cityslicka',
-            // email: '',
-            // password: '',
+            // email: 'eve.holt@reqres.in',
+            // password: 'cityslicka',
+            email: '',
+            password: '',
         };
         mutate({ postData: postData }, {
             onSuccess: (data, _variables, _context) => {
@@ -84,6 +84,7 @@ const useLoginScreenModal = () => {
         textEmailChange,
         textPasswordChange,
         nativeData,
+        isLoading: isPending
     };
 };
 

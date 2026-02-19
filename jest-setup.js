@@ -1,10 +1,9 @@
-// TODO: react-native-reanimated
-// require('react-native-reanimated').setUpTests();
-
 import { jest } from '@jest/globals';
 
-jest.mock('react-native-gesture-handler');
-
+require('react-native-reanimated').setUpTests();
+jest.mock('react-native-worklets', () =>
+    require('react-native-worklets/src/mock')
+);
 jest.mock('@react-native-async-storage/async-storage', () =>
     require('@react-native-async-storage/async-storage/jest/async-storage-mock')
 );
@@ -32,4 +31,3 @@ jest.mock('./src/navigation/NavigationService', () => ({
     openDrawer: jest.fn(),
     setTopLevelNavigator: jest.fn(),
 }));
-
