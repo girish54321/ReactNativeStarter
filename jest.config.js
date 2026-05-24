@@ -1,5 +1,5 @@
 module.exports = {
-  preset: 'react-native',
+ preset: '@react-native/jest-preset',
   setupFiles: [
     './__mocks__/@react-native-async-storage/async-storage.js',
     './__mocks__/react-native-localize.ts',
