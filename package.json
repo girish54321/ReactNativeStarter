@@ -17,6 +17,14 @@
     "clean:android": "cd android && ./gradlew clean",
     "test": "jest"
   },
+  "codegenConfig": {
+    "name": "BUILD_ENV",
+    "type": "modules",
+    "jsSrcsDir": "specs",
+    "android": {
+      "javaPackageName": "com.reactnativestarter"
+    }
+  },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-native-vector-icons/material-design-icons": "^12.4.0",
