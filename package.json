@@ -18,7 +18,7 @@
     "test": "jest"
   },
   "codegenConfig": {
-    "name": "BUILD_ENV",
+    "name": "NativeBuildEnv",
     "type": "modules",
     "jsSrcsDir": "specs",
     "android": {

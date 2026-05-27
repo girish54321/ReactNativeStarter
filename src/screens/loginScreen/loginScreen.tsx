@@ -16,6 +16,10 @@ import SizedBox from '../../components/SizedBox';
 import useLoginScreenModal from './useLoginScreenModal';
 import getTestId from '../../Config/helper';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import NativeBuildEnv from '../../../specs/NativeBuildEnv';
+// import NativeBuildEnv from './specs/NativeBuildEnv';
+
+const buildType = NativeBuildEnv.getBuildType(); // "debug" or "release"
 const width = Dimensions.get('window').width
 const LoginScreen = () => {
   const {
@@ -32,6 +36,7 @@ const LoginScreen = () => {
     width: val.value,
     borderRadius: 22
   }));
+console.log("buildType",buildType);
 
   useEffect(() => {
     if (isLoading) {
@@ -82,7 +87,7 @@ const LoginScreen = () => {
           testID={getTestId('login-button')}
           style={styles.configView} onPress={saveUserLogin}>
           <Animated.View style={[styles.btnStyle, { backgroundColor: paperTheme.colors.primary }, animatedStyle]} >
-            {isLoading ? <ActivityIndicator animating={true} size={28} color='white' /> : <Text variant="titleLarge" style={styles.buttonTextColor}>Login</Text>}
+            {isLoading ? <ActivityIndicator animating={true} size={28} color='white' /> : <Text variant="titleLarge" style={styles.buttonTextColor}>{buildType}</Text>}
           </Animated.View>
         </TouchableOpacity>
       </View>
