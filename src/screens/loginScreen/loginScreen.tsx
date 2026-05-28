@@ -20,6 +20,7 @@ import NativeBuildEnv from '../../../specs/NativeBuildEnv';
 // import NativeBuildEnv from './specs/NativeBuildEnv';
 
 const buildType = NativeBuildEnv.getBuildType(); // "debug" or "release"
+const baseUrl = NativeBuildEnv.getBaseUrl(); // "https://reqres.in/api/"
 const width = Dimensions.get('window').width
 const LoginScreen = () => {
   const {
@@ -37,6 +38,7 @@ const LoginScreen = () => {
     borderRadius: 22
   }));
 console.log("buildType",buildType);
+console.log("baseUrl",baseUrl);
 
   useEffect(() => {
     if (isLoading) {
@@ -55,9 +57,9 @@ console.log("buildType",buildType);
       <View style={styles.inputView}>
         <TouchableOpacity
           style={styles.configView}>
-          <Text >Running {nativeData?.BUILD_ENV}</Text>
+          <Text >Running {buildType}</Text>
           <View style={styles.baseUrlView} />
-          <Text >Your Base URL is {nativeData?.BASE_URL}</Text>
+          <Text >Your Base URL is {baseUrl}</Text>
         </TouchableOpacity>
         <TextInput
           style={{ backgroundColor: paperTheme.colors.background }}

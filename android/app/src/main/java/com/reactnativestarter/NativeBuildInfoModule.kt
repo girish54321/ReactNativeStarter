@@ -10,6 +10,10 @@ class NativeBuildInfoModule(reactContext: ReactApplicationContext) : NativeBuild
         return reactApplicationContext.getString(R.string.BUILD_ENV)
     }
 
+    override fun getBaseUrl(): String {
+        return reactApplicationContext.getString(R.string.base_url)
+    }
+
     companion object {
         const val NAME = "BUILD_ENV"
     }
