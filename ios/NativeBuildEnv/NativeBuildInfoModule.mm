@@ -15,6 +15,10 @@ RCT_EXPORT_MODULE(BUILD_ENV)
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"BUILD_ENV"];
 }
 
+- (NSString *)getBaseUrl {
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"BASE_URL"];
+}
+
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
     (const facebook::react::ObjCTurboModule::InitParams &)params {
     return std::make_shared<facebook::react::NativeBuildEnvSpecJSI>(params);

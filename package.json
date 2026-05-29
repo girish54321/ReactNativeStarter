@@ -23,6 +23,13 @@
     "jsSrcsDir": "specs",
     "android": {
       "javaPackageName": "com.reactnativestarter"
+    },
+    "ios": {
+      "modulesConformingToProtocol": {
+        "RCTTurboModule": [
+          "NativeBuildInfoModule"
+        ]
+      }
     }
   },
   "dependencies": {

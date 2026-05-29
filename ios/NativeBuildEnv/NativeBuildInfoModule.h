@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <NativeBuildEnvSpec/NativeBuildEnvSpec.h>
+#import <NativeBuildEnv/NativeBuildEnv.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -17,10 +17,9 @@ import useLoginScreenModal from './useLoginScreenModal';
 import getTestId from '../../Config/helper';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import NativeBuildEnv from '../../../specs/NativeBuildEnv';
-// import NativeBuildEnv from './specs/NativeBuildEnv';
 
-const buildType = NativeBuildEnv.getBuildType(); // "debug" or "release"
-const baseUrl = NativeBuildEnv.getBaseUrl(); // "https://reqres.in/api/"
+const buildType = NativeBuildEnv.getBuildType(); 
+const baseUrl = NativeBuildEnv.getBaseUrl(); 
 const width = Dimensions.get('window').width
 const LoginScreen = () => {
   const {
