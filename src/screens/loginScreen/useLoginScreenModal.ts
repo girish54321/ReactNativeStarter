@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import {
     Alert,
-    NativeModules,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTheme } from 'react-native-paper';
 import { useUserLogin } from '../../Network/Querys/useLoginMutaion';
 import { authSlice } from '../../redux/authStore/authReducers';
+import NativeBuildEnv from '../../../specs/NativeBuildEnv';
 
 export const defaultLoginScreenState = {
     email: '',
@@ -20,7 +20,8 @@ const useLoginScreenModal = () => {
     const paperTheme = useTheme();
     const [userData, setuserData] = useState(defaultLoginScreenState);
 
-    const nativeData = NativeModules.RNConfigModule;
+    const BUILD_ENV = NativeBuildEnv.getBuildType(); 
+    const BASE_URL = NativeBuildEnv.getBaseUrl(); 
 
     const authDispatch = useDispatch();
     const { mutate, isPending } = useUserLogin();
@@ -47,7 +48,7 @@ const useLoginScreenModal = () => {
                     'Login Failed', `${error.error}`);
             },
             onSettled: (_data, _error, _variables, _context) => {
-                console.log('On Settled', _error);
+                // console.log('On Settled', _error);
             },
         });
 
@@ -83,7 +84,7 @@ const useLoginScreenModal = () => {
         saveUserLogin,
         textEmailChange,
         textPasswordChange,
-        nativeData,
+        nativeData: { BUILD_ENV, BASE_URL },
         isLoading: isPending
     };
 };

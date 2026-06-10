@@ -4,14 +4,15 @@ import { it } from '@jest/globals';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import { useMutation } from '@tanstack/react-query';
 import LoginScreen from './loginScreen';
-import { Alert, NativeModules } from 'react-native';
-import getTestId from '../../Config/helper';
+import { Alert } from 'react-native';
+import getTestId from '../../Config/helper'; 
 import * as reactRedux from 'react-redux';
 
-const defaultConfig = {
-    BUILD_ENV: 'DEV',
-    BASE_URL: 'www.dev.com',
-};
+jest.mock("../../../specs/NativeBuildEnv", () => ({
+  getBuildType: jest.fn(() => "DEV"),
+  getBaseUrl: jest.fn(() => "www.dev.com"),
+})); 
+
 
 describe('UsersScreen', () => {
     beforeEach(() => {
@@ -25,7 +26,6 @@ describe('UsersScreen', () => {
     });
 
     it('render view with testIds', () => {
-        NativeModules.RNConfigModule = defaultConfig;
         const { getByTestId, getByText } = render(<LoginScreen />);
 
         expect(getByText('Running DEV')).toBeTruthy();

@@ -1,11 +1,18 @@
 import React from 'react';
 import { describe, expect } from '@jest/globals';
 import { it } from '@jest/globals';
-import { UsersScreen } from './UsersScreen';
+import { UsersScreen } from './UsersScreen'; 
 import { fireEvent, render } from '@testing-library/react-native';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import getTestId from '../../Config/helper';
 import * as NavService from '../../navigation/NavigationService';
+
+jest.mock("../../../specs/NativeBuildEnv", () => ({
+  getBuildType: jest.fn(() => "DEV"),
+  getBaseUrl: jest.fn(() => "www.dev.com"),
+})); 
+
+
 const mockData = {
     pages: [
         {
@@ -21,7 +28,7 @@ const mockData = {
 
 describe('UsersScreen', () => {
     afterEach(() => {
-        jest.clearAllMocks();
+        jest.clearAllMocks(); 
     });
     it('renders correctly', () => {
         //@ts-ignore
@@ -31,12 +38,12 @@ describe('UsersScreen', () => {
         const { getByText } = render(<UsersScreen />);
         expect(getByText('john.doe@example.com')).toBeTruthy();
         expect(getByText('jane.smith@example.com')).toBeTruthy();
-    });
+    }); 
 
     it('api with error', () => {
         //@ts-ignore
         useInfiniteQuery.mockReturnValue({
-            data: undefined,
+            data: undefined, 
             isError: true,
             error: { message: 'Error message form Backend' },
         });

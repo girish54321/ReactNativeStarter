@@ -292,8 +292,8 @@
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-ReactNativeStarter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = www.girish.com;
-				BUILD_ENV = GIRISH_PARATE;
+				BASE_URL = "https://reqres.in/api/";
+				BUILD_ENV = DEV;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -322,8 +322,8 @@
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-ReactNativeStarter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = www.girish.com;
-				BUILD_ENV = GIRISH_PARATE;
+				BASE_URL = "https://reqres.in/api/";
+				BUILD_ENV = PROD;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ReactNativeStarter/Info.plist;
@@ -588,8 +588,8 @@
 			baseConfigurationReference = D8E9625F6D9B425501D96716 /* Pods-ReactNativeStarter.devdebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = www.girish.com;
-				BUILD_ENV = GIRISH_PARATE;
+				BASE_URL = "https://reqres.in/api/";
+				BUILD_ENV = DEV;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -692,8 +692,8 @@
 			baseConfigurationReference = 9F79CB066CADC2645F771CEE /* Pods-ReactNativeStarter.devrelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = www.girish.com;
-				BUILD_ENV = GIRISH_PARATE;
+				BASE_URL = "https://reqres.in/api/";
+				BUILD_ENV = DEV;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ReactNativeStarter/Info.plist;
@@ -802,8 +802,8 @@
 			baseConfigurationReference = 360E3F8057A57E850E2F03CF /* Pods-ReactNativeStarter.qadebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = www.girish.com;
-				BUILD_ENV = GIRISH_PARATE;
+				BASE_URL = "https://reqres.in/api/";
+				BUILD_ENV = QA;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -906,8 +906,8 @@
 			baseConfigurationReference = 72BFB76505DBAB7DA82E0D10 /* Pods-ReactNativeStarter.qarelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = www.girish.com;
-				BUILD_ENV = GIRISH_PARATE;
+				BASE_URL = "https://reqres.in/api/";
+				BUILD_ENV = QA;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ReactNativeStarter/Info.plist;
@@ -1008,8 +1008,8 @@
 			baseConfigurationReference = E05F95015561D998AB03D95D /* Pods-ReactNativeStarter.prodrelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = www.girish.com;
-				BUILD_ENV = GIRISH_PARATE;
+				BASE_URL = "https://reqres.in/api/";
+				BUILD_ENV = PROD;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ReactNativeStarter/Info.plist;
@@ -1118,8 +1118,8 @@
 			baseConfigurationReference = 68DBEC7D83C1D173179DFB0D /* Pods-ReactNativeStarter.proddebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = www.girish.com;
-				BUILD_ENV = GIRISH_PARATE;
+				BASE_URL = "https://reqres.in/api/";
+				BUILD_ENV = PROD;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;

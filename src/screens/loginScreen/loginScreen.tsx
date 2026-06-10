@@ -16,10 +16,8 @@ import SizedBox from '../../components/SizedBox';
 import useLoginScreenModal from './useLoginScreenModal';
 import getTestId from '../../Config/helper';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import NativeBuildEnv from '../../../specs/NativeBuildEnv';
 
-const buildType = NativeBuildEnv.getBuildType(); 
-const baseUrl = NativeBuildEnv.getBaseUrl(); 
+
 const width = Dimensions.get('window').width
 const LoginScreen = () => {
   const {
@@ -27,7 +25,7 @@ const LoginScreen = () => {
     userData,
     saveUserLogin,
     textEmailChange,
-    textPasswordChange,
+    textPasswordChange, 
     isLoading,
     nativeData } = useLoginScreenModal();
 
@@ -36,8 +34,6 @@ const LoginScreen = () => {
     width: val.value,
     borderRadius: 22
   }));
-console.log("buildType",buildType);
-console.log("baseUrl",baseUrl);
 
   useEffect(() => {
     if (isLoading) {
@@ -56,9 +52,9 @@ console.log("baseUrl",baseUrl);
       <View style={styles.inputView}>
         <TouchableOpacity
           style={styles.configView}>
-          <Text >Running {buildType}</Text>
+          <Text >Running {nativeData.BUILD_ENV}</Text>
           <View style={styles.baseUrlView} />
-          <Text >Your Base URL is {baseUrl}</Text>
+          <Text >Your Base URL is {nativeData.BASE_URL}</Text>
         </TouchableOpacity>
         <TextInput
           style={{ backgroundColor: paperTheme.colors.background }}
@@ -88,7 +84,7 @@ console.log("baseUrl",baseUrl);
           testID={getTestId('login-button')}
           style={styles.configView} onPress={saveUserLogin}>
           <Animated.View style={[styles.btnStyle, { backgroundColor: paperTheme.colors.primary }, animatedStyle]} >
-            {isLoading ? <ActivityIndicator animating={true} size={28} color='white' /> : <Text variant="titleLarge" style={styles.buttonTextColor}>{buildType}</Text>}
+            {isLoading ? <ActivityIndicator animating={true} size={28} color='white' /> : <Text variant="titleLarge" style={styles.buttonTextColor}>{"Login"}</Text>}
           </Animated.View>
         </TouchableOpacity>
       </View>

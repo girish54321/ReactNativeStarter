@@ -19,7 +19,7 @@ export const UsersScreen = (_props: any) => {
 
     if (isError) {
         return (
-            <ErrorView
+            <ErrorView 
                 title='Error'
                 message={error?.message ?? "Error fetching data"}
                 onRetry={refetch}
