@@ -11,7 +11,7 @@ import {
 } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setTopLevelNavigator } from './NavigationService';
-import { AppBottomTab } from './appNavigation/AppNavigation';
+import  AppBottomTab  from './appNavigation/AppNavigation';
 import AuthStackScreens from './authStack/AuthStackScreens';
 import { DARK_THEME_TYPE } from '../redux/themeStore/reducers';
 import { checkTheme } from '../redux/themeStore/action';

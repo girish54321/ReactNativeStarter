@@ -39,6 +39,7 @@ export const UsersScreen = (_props: any) => {
         <AppView>
             <FlatList
                 refreshing={isLoading}
+                contentInsetAdjustmentBehavior="automatic"
                 // eslint-disable-next-line react/no-unstable-nested-components
                 ListFooterComponent={() => isFetchingNextPage ? <ActivityIndicator /> : null}
                 data={data?.pages.map(page => page.data.data).flat()}

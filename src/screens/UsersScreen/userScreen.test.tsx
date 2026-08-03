@@ -33,7 +33,7 @@ describe('UsersScreen', () => {
     it('renders correctly', () => {
         //@ts-ignore
         useInfiniteQuery.mockReturnValue({
-            data: mockData,
+            data: mockData, 
         });
         const { getByText } = render(<UsersScreen />);
         expect(getByText('john.doe@example.com')).toBeTruthy();

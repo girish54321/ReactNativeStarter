@@ -94,7 +94,6 @@ describe('UsersScreen', () => {
         const { getByText } = render(<LoginScreen />);
         const loginButton = getByText('Login');
         fireEvent.press(loginButton);
-
         await waitFor(() => {
             const [vars] = mutate.mock.calls[0];
             expect(vars).toEqual({

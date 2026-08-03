@@ -37,7 +37,7 @@ const LoginScreen = () => {
   const val = useSharedValue(width / 2)
   const animatedStyle = useAnimatedStyle(() => ({
     width: val.value,
-    borderRadius: 22
+    borderRadius: 22 
   }));
 
   const {
@@ -48,6 +48,8 @@ const LoginScreen = () => {
     defaultValues: {
       email: "",
       password: "",
+      //  email: 'eve.holt@reqres.in',
+            // password: 'cityslicka',
     },
     resolver: zodResolver(formSchema)
   })
