@@ -3,5 +3,6 @@ module.exports = {
   plugins: [
     'react-native-paper/babel',
     'react-native-worklets/plugin',
+    '@babel/plugin-transform-export-namespace-from'
   ],
 };

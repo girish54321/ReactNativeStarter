@@ -1402,7 +1402,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-pager-view (8.0.2):
+  - react-native-pager-view (8.0.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1425,7 +1425,7 @@ PODS:
     - ReactNativeDependencies
     - SwiftUIIntrospect (~> 1.0)
     - Yoga
-  - react-native-safe-area-context (5.8.0):
+  - react-native-safe-area-context (5.6.2):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1437,8 +1437,8 @@ PODS:
     - React-graphics
     - React-ImageManager
     - React-jsi
-    - react-native-safe-area-context/common (= 5.8.0)
-    - react-native-safe-area-context/fabric (= 5.8.0)
+    - react-native-safe-area-context/common (= 5.6.2)
+    - react-native-safe-area-context/fabric (= 5.6.2)
     - React-NativeModulesApple
     - React-RCTFabric
     - React-renderercss
@@ -1449,7 +1449,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-safe-area-context/common (5.8.0):
+  - react-native-safe-area-context/common (5.6.2):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1471,7 +1471,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-safe-area-context/fabric (5.8.0):
+  - react-native-safe-area-context/fabric (5.6.2):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1494,7 +1494,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-vector-icons-material-design-icons (12.5.0)
+  - react-native-vector-icons-material-design-icons (12.4.0)
   - React-NativeModulesApple (0.85.3):
     - hermes-engine
     - React-callinvoker
@@ -1902,7 +1902,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - RNGestureHandler (2.31.2):
+  - RNGestureHandler (2.30.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1924,7 +1924,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - RNLocalize (3.7.0):
+  - RNLocalize (3.6.1):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2020,7 +2020,7 @@ PODS:
     - ReactNativeDependencies
     - RNWorklets
     - Yoga
-  - RNScreens (4.25.2):
+  - RNScreens (4.22.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2042,9 +2042,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
-    - RNScreens/common (= 4.25.2)
+    - RNScreens/common (= 4.22.0)
     - Yoga
-  - RNScreens/common (4.25.2):
+  - RNScreens/common (4.22.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2465,9 +2465,9 @@ SPEC CHECKSUMS:
   React-Mapbuffer: fec3e025f0ffba6b32cd2a1d7bbdee3e269aae90
   React-microtasksnativemodule: ab33a818d339f5a1da308893c11b487be66121a8
   React-mutationobservernativemodule: a42d1626651ccd7d0dc02a56e69d4ec77c248893
-  react-native-pager-view: c9f0c94cc64041ac70f28f79527ea2ac664cf25c
-  react-native-safe-area-context: fb5c8ee9f6dd62ef710611b3d370c501f42a4ac0
-  react-native-vector-icons-material-design-icons: 95914f2f6b18e26e5c9563afe33184e110afe674
+  react-native-pager-view: 56b330226f0e9f025f6705bfb9bbb95b4a77aa58
+  react-native-safe-area-context: 91a90d98c310adcc90a511e5aeb6046d7c19d885
+  react-native-vector-icons-material-design-icons: 76cd460b3540b80527b4a80fb7f867f7deedb498
   React-NativeModulesApple: deba264b03bd79c6bd61014fa30e40321b5e443a
   React-networking: 35e6070b084f435429f85c5db40b4d5b38652fe9
   React-oscompat: 64a0c7ef5441855dc6e2a6afe8ba8f92aa05075e
@@ -2503,10 +2503,10 @@ SPEC CHECKSUMS:
   ReactCommon: 7dfc3250793bf36cf221096ff59e1179e13eef7f
   ReactNativeDependencies: c8431019feecad8cbda1bd3a9dd65de7f006b224
   RNCAsyncStorage: 2ad919e88b8bc2cd80e8697ce66d04d006743283
-  RNGestureHandler: 2ff61eac036eaf89f6818bf4ed9c39771a17d134
-  RNLocalize: f370284ea42c48f29f0d8dd3a7bcc28a04f82155
+  RNGestureHandler: c84901d120acdae2f6f27b5889a7cf144e64e6ec
+  RNLocalize: 08ddbf97a7e01ce3c7e238add9a8142b7cb9693d
   RNReanimated: f735b1747a7a93bda7ca102c6d37a3cf54b6d5e8
-  RNScreens: 991cc417cd396602a6cf59a42139e5a9d91462a9
+  RNScreens: 45cbaa5df6578dc26469783c66a9e75b13238eff
   RNVectorIcons: 97f26211c07d69e45b189f9dd0dbbe5e2d2b0b92
   RNWorklets: 4931990f73bc8f347586918b2e13f11dfadf3b75
   SwiftUIIntrospect: fee9aa07293ee280373a591e1824e8ddc869ba5d

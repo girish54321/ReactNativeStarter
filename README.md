@@ -1,85 +1,129 @@
-# React Native TypeScript Starter with Flavors ❤️ now with Material 3
+That's actually a much better replacement than Nandi Hills. 😊
 
-## Welcome
+Since you're removing **Nandi Hills**, I'd add **ISKCON Sri Radha Krishna
+Temple** to the same day as **Bangalore Palace** because they're both in the
+northern part of Bengaluru and can be covered comfortably together.
 
-Welcome to our React Native starter repo! This repo includes a variety of core features to help you get started building a top-quality mobile app.
+## 🌿 Final Trip Plan
 
+### ✈️ 22 Aug (Friday) – Arrival Day
 
-## Flavor builds
+- Flight lands around **10:00 AM**
+- Reach Kodathi/Sarjapur by **12:30–1:00 PM**
+- 🍽️ Lunch
+- 🏠 Check in & Rest
+- 🌆 Evening: Explore Sarjapur/Kodathi, have dinner nearby
 
-Need to create different versions of your app for different markets or audiences? No problem! This starter repo includes support for flavor builds, so you can easily create unique versions of your app with their own branding, assets, and configurations.
+---
 
-## Redux with Axios
+## 🚕 23 Aug (Saturday) – Relax Day
 
-We've included both Redux and Axios to help you manage the state of your app and make HTTP requests in a consistent and efficient manner.
+Since your family has just arrived:
 
-Get started building your dream app today with this powerful React Native starter repo!
+- Sleep well
+- Enjoy breakfast
+- Explore nearby cafés or lakes
+- Relax and spend time together
 
+_(If you're working on weekdays instead, simply swap this with another free
+day.)_
 
-<img width="1604"  src="image/banner.png?raw=true">
+---
 
-## Test case 
-<img width="1604"  src="image/testcase.png?raw=true">
+## 🚕 24 Aug – South Bengaluru
 
-## Installation
+**8:30 AM** – Breakfast
 
-[<img src="https://github.com/NeoApplications/Neo-Backup/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png?raw=true"
-    alt="Get it on GitHub"
-    height="80">](apk/app-prod-release.apk)
+**9:30 AM** – Leave
 
-## Run Locally
+🌺 Lalbagh Botanical Garden
 
-Clone the project
+🏯 Tipu Sultan's Summer Palace
 
-```bash
-   git clone https://github.com/girish54321/starterApp.git
-```
+🍽️ Lunch
 
-Go to the project directory
+🌳 Cubbon Park
 
-```bash
-  cd react-native-starter
-```
+☕ Evening Tea
 
-Install dependencies
+🏠 Return Home
 
-```bash
-  yarn
-```
+---
 
-On Android DEV
+## 🚕 25 Aug – North Bengaluru
 
-```bash
-  yarn android_dev_debug
-```
+**8:30 AM** – Breakfast
 
-On Android Staging
+**9:30 AM** – Leave
 
-```bash
-  yarn android_staging_debug
-```
+⛪ St. Mary's Basilica
 
-On Android PROD
+🏰 Bangalore Palace
 
-```bash
-  yarn android_prod_debug
-```
+🍽️ Lunch
 
-On iOS or use XCode
+🛕 ISKCON Sri Radha Krishna Temple
 
-```bash
-  cd ios && pod install && cd .. && yarn run ios11
-```
+🛕 Shri Someshwara Temple _(if everyone still has energy; otherwise move it to
+another evening)_
 
+🏠 Return
 
-## Tech Stack
+---
 
-React, React native, Redux toolkit
+## 🚗 26 Aug – Lepakshi Day Trip (Rental Car + Driver)
 
-If you find my work useful, please consider supporting me by buying me a coffee!
+**7:00 AM** – Breakfast
 
-Your support helps me continue to develop and maintain this project.
+**7:45 AM** – Leave
 
-Thank you!
+🛕 Lepakshi Temple
 
-<a href="https://www.buymeacoffee.com/girishparaa" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+🍽️ Lunch
+
+Return to Bengaluru
+
+☕ Tea Break
+
+🏠 Reach by evening
+
+---
+
+## 27–28 Aug
+
+Keep these days flexible:
+
+- Shopping
+- Family time
+- Good restaurants
+- Rest
+- Anything you missed because of weather or traffic
+
+---
+
+## ✈️ 29 Aug
+
+Breakfast
+
+Pack
+
+Airport
+
+---
+
+## 💡 One suggestion
+
+Since your family is staying for **a full week**, **don't book the rental car
+for all 3 days immediately**.
+
+I'd do:
+
+- 🚗 **1 day** for **Lepakshi** (definitely worth it).
+- 🚕 Uber/Ola for the Bengaluru city attractions.
+
+If later you feel your mom would be more comfortable with a private car for the
+city days, you can always extend the rental. This gives you flexibility and may
+save money.
+
+Overall, with **Nandi Hills removed** and **ISKCON added**, I think the
+itinerary is more balanced, less tiring, and better suited for a family trip.
