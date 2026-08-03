@@ -6,6 +6,7 @@ import { fireEvent, render } from '@testing-library/react-native';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import getTestId from '../../Config/helper';
 import * as NavService from '../../navigation/NavigationService';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 jest.mock("../../../specs/NativeBuildEnv", () => ({
   getBuildType: jest.fn(() => "DEV"),
@@ -31,11 +32,15 @@ describe('UsersScreen', () => {
         jest.clearAllMocks(); 
     });
     it('renders correctly', () => {
-        //@ts-ignore
+        //@ts-ignore 
         useInfiniteQuery.mockReturnValue({
             data: mockData,
         });
-        const { getByText } = render(<UsersScreen />);
+        const { getByText } = render(
+        <GestureHandlerRootView>
+        <UsersScreen />
+            </GestureHandlerRootView>
+    );
         expect(getByText('john.doe@example.com')).toBeTruthy();
         expect(getByText('jane.smith@example.com')).toBeTruthy();
     }); 
@@ -68,7 +73,11 @@ describe('UsersScreen', () => {
             data: mockData,
         });
 
-        const { getByText } = render(<UsersScreen />);
+        const { getByText } =  render(
+        <GestureHandlerRootView>
+        <UsersScreen />
+            </GestureHandlerRootView>
+    );
         const buttonOne = getByText('john.doe@example.com');
 
         fireEvent.press(buttonOne);

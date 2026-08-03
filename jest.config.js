@@ -7,8 +7,11 @@ module.exports = {
   ],
   'transformIgnorePatterns': [
     // TODO: react-native-reanimated
-    // 'node_modules/(?!(@react-native|react-native|react-native-reanimated)/)',
+    // 'node_modules/(?!((jest-)?react-native|react-native-gesture-handler)/)',
   ],
   // setupFilesAfterEnv: ['./setupTests.js'],
-  setupFilesAfterEnv: ['./jest-setup.js'],
+  setupFilesAfterEnv: [
+    './jest-setup.js',
+    "./node_modules/react-native-gesture-handler/jestSetup.js"
+  ],
 };
