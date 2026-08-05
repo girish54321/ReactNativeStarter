@@ -16,24 +16,41 @@ import SizedBox from '../../components/SizedBox';
 import useLoginScreenModal from './useLoginScreenModal';
 import getTestId from '../../Config/helper';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import { useForm, Controller } from "react-hook-form"
+import { zodResolver } from '@hookform/resolvers/zod';
 
+import { z } from 'zod';
+
+const formSchema = z.object({
+  email: z.string().email("Invalid email"),
+  password: z.string().min(6, "Password must be at least 6 characters")
+});
 
 const width = Dimensions.get('window').width
+ 
 const LoginScreen = () => {
   const {
     paperTheme,
-    userData,
     saveUserLogin,
-    textEmailChange,
-    textPasswordChange, 
     isLoading,
     nativeData } = useLoginScreenModal();
-
   const val = useSharedValue(width / 2)
   const animatedStyle = useAnimatedStyle(() => ({
     width: val.value,
     borderRadius: 22
   }));
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: zodResolver(formSchema)
+  })
 
   useEffect(() => {
     if (isLoading) {
@@ -56,33 +73,56 @@ const LoginScreen = () => {
           <View style={styles.baseUrlView} />
           <Text >Your Base URL is {nativeData.BASE_URL}</Text>
         </TouchableOpacity>
-        <TextInput
-          style={{ backgroundColor: paperTheme.colors.background }}
-          testID={getTestId('login-email')}
-          label="Email"
-          mode='outlined'
-          autoCapitalize="none"
-          value={userData.email}
-          placeholder="Email"
-          onChangeText={textEmailChange}
-        />
-        <SizedBox size={12} />
-        <TextInput
-          style={{ backgroundColor: paperTheme.colors.background }}
-          secureTextEntry={userData.secureTextEntry}
-          testID={getTestId('login-password')}
-          label="Password"
-          mode='outlined'
-          placeholder="Password"
-          autoCapitalize="none"
-          value={userData.password}
-          onChangeText={textPasswordChange}
-        />
-        <SizedBox size={16} />
+        <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            style={{ backgroundColor: paperTheme.colors.background }}
+            testID={getTestId('login-email')}
+            label="Email"
+            mode='outlined'
+            onBlur={onBlur}
+            error={errors.email ? true : false}
+            autoCapitalize="none"
+            value={value}
+            placeholder="Email"
+            onChangeText={onChange}
+          />
+        )}
+        name="email"
+      />
+      {errors.email && <Text variant="labelMedium" >{errors.email.message}</Text>}
+      <SizedBox size={12} />
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            style={{ backgroundColor: paperTheme.colors.background }}
+            testID={getTestId('login-password')}
+            label="Password"
+            mode='outlined'
+            error={errors.password ? true : false}
+            onBlur={onBlur}
+            placeholder="Password"
+            autoCapitalize="none"
+            value={value}
+            onChangeText={onChange}
+          />
+        )}
+        name="password"
+      />
+      {errors.password && <Text variant="labelMedium" >{errors.password.message}</Text>}
+      <SizedBox size={12} />
         <TouchableOpacity
           disabled={isLoading}
           testID={getTestId('login-button')}
-          style={styles.configView} onPress={saveUserLogin}>
+          style={styles.configView}  onPress={handleSubmit(saveUserLogin)}>
           <Animated.View style={[styles.btnStyle, { backgroundColor: paperTheme.colors.primary }, animatedStyle]} >
             {isLoading ? <ActivityIndicator animating={true} size={28} color='white' /> : <Text variant="titleLarge" style={styles.buttonTextColor}>{"Login"}</Text>}
           </Animated.View>
