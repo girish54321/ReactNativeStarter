@@ -15,7 +15,8 @@ export const CustomNavigationBar: React.FC<AppAppBarType> = ({ navigation, route
     return (
         <Appbar.Header>
             {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
-            {options ? options?.headerTitle ? options?.headerTitle() : <Appbar.Content title={title} /> : <Appbar.Content title={title} />}
+            {options ? options?.headerTitle ? options?.headerTitle() : 
+                <Appbar.Content title={title} /> : <Appbar.Content title={title} />}
             {options ? options.headerRight ? options?.headerRight() : null : null}
         </Appbar.Header>
     );

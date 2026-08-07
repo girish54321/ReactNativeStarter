@@ -5,14 +5,13 @@ import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import { useMutation } from '@tanstack/react-query';
 import LoginScreen from './loginScreen';
 import { Alert } from 'react-native';
-import getTestId from '../../Config/helper'; 
+import getTestId from '../../Config/helper';
 import * as reactRedux from 'react-redux';
 
 jest.mock("../../../specs/NativeBuildEnv", () => ({
-  getBuildType: jest.fn(() => "DEV"),
-  getBaseUrl: jest.fn(() => "www.dev.com"),
-})); 
-
+    getBuildType: jest.fn(() => "DEV"),
+    getBaseUrl: jest.fn(() => "www.dev.com"),
+}));
 
 describe('UsersScreen', () => {
     beforeEach(() => {
@@ -36,7 +35,20 @@ describe('UsersScreen', () => {
         expect(getByTestId(getTestId('login-button'))).toBeTruthy();
     });
 
-    it('handles login success', async () => {
+    it('Show error text when user tab on login buttoon without valuse', async () => {
+        const { getByText } = render(
+            <LoginScreen />
+        );
+
+        fireEvent.press(getByText('Login'));
+
+        await waitFor(() => {
+            expect(getByText('Invalid email')).toBeOnTheScreen();
+            expect(getByText('Password must be at least 6 characters')).toBeOnTheScreen();
+        })
+    })
+
+    it('fill email & password and login', async () => {
         const apiResponse = { token: 'fake-token' };
 
         const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
@@ -55,10 +67,14 @@ describe('UsersScreen', () => {
         });
 
         const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(jest.fn());
-
-        const { getByText } = render(
+        const { getByText, getByPlaceholderText } = render(
             <LoginScreen />
         );
+
+        const emailText = getByPlaceholderText('Email')
+        const passWordText = getByPlaceholderText('Password')
+        fireEvent.changeText(emailText, "eve.holt@reqres.in")
+        fireEvent.changeText(passWordText, "g123456")
 
         fireEvent.press(getByText('Login'));
 
@@ -71,8 +87,8 @@ describe('UsersScreen', () => {
                     payload: {
                         userLoggedIn: true,
                         isLoading: false,
-                        userName: '',
-                        email: '',
+                        userName: 'eve.holt@reqres.in',
+                        email: 'eve.holt@reqres.in',
                         token: 'fake-token',
                     },
                     type: 'authSlice/userLoginAction',
@@ -81,27 +97,8 @@ describe('UsersScreen', () => {
 
             expect(alertSpy).not.toHaveBeenCalled();
         });
-    });
+    })
 
-
-    it('handles login button press', async () => {
-        const mutate = jest.fn();
-
-        (useMutation as jest.Mock).mockReturnValue({
-            mutate,
-            onError: jest.fn(),
-        });
-        const { getByText } = render(<LoginScreen />);
-        const loginButton = getByText('Login');
-        fireEvent.press(loginButton);
-
-        await waitFor(() => {
-            const [vars] = mutate.mock.calls[0];
-            expect(vars).toEqual({
-                postData: { email: '', password: '' },
-            });
-        });
-    });
 
     it('Login with invalid credentials error', async () => {
         const apiError = {
@@ -121,14 +118,19 @@ describe('UsersScreen', () => {
 
         const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(jest.fn());
 
-        const { getByText } = render(<LoginScreen />);
+        const { getByText, getByPlaceholderText } = render(<LoginScreen />);
+        const emailText = getByPlaceholderText('Email')
+        const passWordText = getByPlaceholderText('Password')
+        fireEvent.changeText(emailText, "eve.holt@reqres.in")
+        fireEvent.changeText(passWordText, "g123456")
+
         fireEvent.press(getByText('Login'));
 
         await waitFor(() => {
             expect(mutate).toHaveBeenCalled();
             const [vars] = mutate.mock.calls[0];
             expect(vars).toEqual({
-                postData: { email: '', password: '' },
+                postData: { email: 'eve.holt@reqres.in', password: 'cityslicka' },
             });
             expect(alertSpy).toHaveBeenCalledWith('Login Failed', apiError.error);
         });
