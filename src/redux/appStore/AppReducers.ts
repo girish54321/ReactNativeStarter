@@ -5,11 +5,13 @@ import { APP_CONST } from '../../Config/Colors';
 export interface APP_STATE {
   isLoading: boolean;
   showModalSheet: boolean;
+  appLang: string;
 }
 
 const INITIAL_STATE: APP_STATE = {
   isLoading: false,
   showModalSheet: false,
+  appLang: 'en'
 };
 
 
@@ -28,12 +30,16 @@ export const appSlice = createSlice({
       AsyncStorage.setItem(APP_CONST.USER_LOGIN, jsonValue);
       return { ...state, ...action.payload };
     },
+    setAppLan: (state, action: PayloadAction<string>) => {
+      AsyncStorage.setItem(APP_CONST.APP_LANG, action.payload);
+      return { ...state, appLang: action.payload };
+    },
     checkUserLoginAction: (state, action: PayloadAction<APP_STATE>) => {
       return {
         ...state,
         ...action.payload,
         isLoading: false,
-      };
+      }; 
     },
     userLoginLogOutAction: (state) => {
       AsyncStorage.removeItem(APP_CONST.USER_LOGIN);

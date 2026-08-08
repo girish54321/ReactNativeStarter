@@ -9,4 +9,5 @@ export const Colors = {
 export const APP_CONST = {
   CHECK_THEME: 'CHECK_THEME',
   USER_LOGIN: 'USER_LOGIN',
+  APP_LANG: "APP_LANG"
 };
