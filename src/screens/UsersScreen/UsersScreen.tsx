@@ -14,12 +14,12 @@ import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 
 const AnimatedListItemView = Animated.createAnimatedComponent(ListItem);
 
-export const UsersScreen = (_props: any) => {
+export const UsersScreen = () => {
     const { data, isLoading, isError, error, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } = useUserList();
 
     if (isError) {
         return (
-            <ErrorView
+            <ErrorView 
                 title='Error'
                 message={error?.message ?? "Error fetching data"}
                 onRetry={refetch}
@@ -89,9 +89,9 @@ export const UsersScreen = (_props: any) => {
                                 email={item.email}
                                 key={String(1)}
                                 image={item.avatar}
-                                onPress={function (_e: GestureResponderEvent): void {
-                                    navigate(Route.SELECTEDUSERSCREEN, { data: item });
-                                }}
+                                onPress={()=>
+                                    navigate(Route.SELECTEDUSERSCREEN, { data: item })
+                                }
                             />
                         </Swipeable>
                     );

@@ -16,11 +16,4 @@ describe('Loading View', () => {
 
         expect(item.getByTestId(getTestId('loader-modal'))).toBeTruthy();
     });
-
-    // it('not render loading when it false', () => {
-    //@ts-ignore
-    //     reactRedux.useSelector.mockImplementation((cb: any) => cb({ appReducers: { isLoading: false } }));
-    //     const item = render(<AppLoaderModal />);
-    //     expect(item.getByTestId(getTestId('loader-modal'))).toBe();
-    // });
 });
