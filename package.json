@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "5.7.1",
+    "@legendapp/list": "^3.3.7",
     "@react-native-async-storage/async-storage": "^3.1.1",
     "@react-native-vector-icons/material-design-icons": "^13.1.2",
     "@react-native/new-app-screen": "0.86.2",
