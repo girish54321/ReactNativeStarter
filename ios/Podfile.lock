@@ -2221,6 +2221,28 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
+  - StarterEnv (0.1.0):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - SwiftUIIntrospect (1.3.0)
   - Yoga (0.0.0)
 
@@ -2310,6 +2332,7 @@ DEPENDENCIES:
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - RNWorklets (from `../node_modules/react-native-worklets`)
+  - StarterEnv (from `../node_modules/react-native-starter-env`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -2486,6 +2509,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-vector-icons"
   RNWorklets:
     :path: "../node_modules/react-native-worklets"
+  StarterEnv:
+    :path: "../node_modules/react-native-starter-env"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -2574,6 +2599,7 @@ SPEC CHECKSUMS:
   RNScreens: 7118cd7715c226856125b5bece3c4d9abec90356
   RNVectorIcons: 97f26211c07d69e45b189f9dd0dbbe5e2d2b0b92
   RNWorklets: 9052122d7f98de547d247e775ea2069839236d38
+  StarterEnv: a03a5954ac330dc1900e7fa52ebd3c20788e9869
   SwiftUIIntrospect: fee9aa07293ee280373a591e1824e8ddc869ba5d
   Yoga: 9891cfb1c680f64de9c41b09e7453dea33454d2b
 

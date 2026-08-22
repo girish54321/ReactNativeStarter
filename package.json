@@ -15,7 +15,8 @@
     "android_prod_dev": "cd android && ./gradlew clean && ./gradlew assembleProdRelease",
     "android_man": "cd android && ./gradlew installDevDebug",
     "clean:android": "cd android && ./gradlew clean",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "cd node_modules && cd react-native-starter-env && yarn bob build"
   },
   "codegenConfig": {
     "name": "NativeBuildEnv",
@@ -37,6 +38,7 @@
     "@legendapp/list": "^3.3.7",
     "@react-native-async-storage/async-storage": "^3.1.1",
     "@react-native-vector-icons/material-design-icons": "^13.1.2",
+    "react-native-starter-env": "file:/Users/girishparate/Desktop/starter-env",
     "@react-native/new-app-screen": "0.86.2",
     "@react-navigation/bottom-tabs": "^7.18.14",
     "@react-navigation/elements": "^2.9.36",
