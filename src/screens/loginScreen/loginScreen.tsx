@@ -19,7 +19,6 @@ import getTestId from '../../Config/helper';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod';
-import { getEnvVariable } from 'react-native-starter-env';
 
 
 import { z } from 'zod';
@@ -43,12 +42,7 @@ const LoginScreen = () => {
     borderRadius: 22
   }));
 
-  const [env, setEnv] = useState("")
 
-  const getEnv = () => {
-    const nativeEnv = getEnvVariable();
-    setEnv(nativeEnv)
-  }
 
   const {
     control,
@@ -77,8 +71,6 @@ const LoginScreen = () => {
       <View
         style={styles.container} />
       <View style={styles.inputView}>
-        <Button title="Get ENV" onPress={getEnv} />
-        <Text>Result: {env}</Text>
         <TouchableOpacity
           style={styles.configView}>
           <Text >Running {nativeData.BUILD_ENV}</Text>

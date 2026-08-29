@@ -11,8 +11,8 @@ import NativeBuildEnv from '../../../specs/NativeBuildEnv';
 const useLoginScreenModal = () => {
     const paperTheme = useTheme();
 
-    const BUILD_ENV = NativeBuildEnv.getBuildType(); 
-    const BASE_URL = NativeBuildEnv.getBaseUrl(); 
+    const BUILD_ENV = NativeBuildEnv.getBuildType();
+    const BASE_URL = NativeBuildEnv.getBaseUrl();
 
     const authDispatch = useDispatch();
     const { mutate, isPending } = useUserLogin();
@@ -36,7 +36,7 @@ const useLoginScreenModal = () => {
             },
             onError: (error) => {
                 Alert.alert(
-                    'Login Failed', `${error.error}`);
+                    'Login Failed', `${error?.error ?? "Error"}`);
             },
             onSettled: (_data, _error, _variables, _context) => {
                 // console.log('On Settled', _error);
