@@ -41,7 +41,7 @@ export const UsersScreen = () => {
         return (
             <Swipeable
                 renderLeftActions={(valIcon) => {
-                    // eslint-disable-next-line react-hooks/rules-of-hooks
+                    // eslint-disable-next-line react-hooks/rules-of-hooks 
                     const iconStyle = useAnimatedStyle(() => ({
                         transform: [{ scale: interpolate(valIcon.value, [0, 1], [0.5, 1]) }],
                     }));
