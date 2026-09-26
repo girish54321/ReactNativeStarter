@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigation } from 'react-native-paper';
 import { CommonActions } from '@react-navigation/native';
+//@ts-ignore
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import AppLoaderModal from '../../components/appLoaderModal/AppLoaderModal';
@@ -55,6 +56,7 @@ export const AppBottomTab = () => {
                                     ? options.tabBarLabel
                                     : options.title !== undefined
                                         ? options.title
+                                        //@ts-ignore
                                         : route?.title;
 
                             return label;

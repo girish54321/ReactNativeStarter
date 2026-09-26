@@ -38,7 +38,7 @@ Api.interceptors.request.use(
 // Helper function
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-const RESPONSE_DELAY = 10000; // delay in ms
+const RESPONSE_DELAY = 1000; // delay in ms
 
 Api.interceptors.response.use(
     async (response: AxiosResponse) => {

@@ -1,14 +1,15 @@
-import { NativeModules } from 'react-native';
-const Flavor = NativeModules.RNConfigModule;
+import NativeBuildEnv from "../../specs/NativeBuildEnv";
+
+const BUILD_ENV = NativeBuildEnv.getBuildType(); 
+const BASE_URL = NativeBuildEnv.getBaseUrl(); 
 
 export function getBaseUrl() {
-    // return Flavor.BASE_URL;
-    return 'https://reqres.in/api/';
+    return BASE_URL;
 }
 
 export function getEnvironmentVariable() {
-    return Flavor.BUILD_ENV === 'DEV' ? true : false;
-}
+    return BUILD_ENV === 'DEV' ? true : false;
+} 
 
 export function getDefaultHeader() {
     return {

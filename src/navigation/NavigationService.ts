@@ -9,10 +9,10 @@ function setTopLevelNavigator(navigatorRef: any) {
 
 function navigate(routeName: string, params?: any) {
     _navigator.dispatch(
-        CommonActions.navigate({
-            name: routeName,
+        CommonActions.navigate(
+            routeName,
             params,
-        })
+        )
     );
 }
 
