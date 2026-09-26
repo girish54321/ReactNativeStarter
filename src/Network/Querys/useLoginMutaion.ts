@@ -5,11 +5,11 @@ import { LoginRes } from '../../models/responseType/LoginRes';
 import { Api } from '../services';
 
 interface LoginError {
-    error: string;
+    error?: string;
 }
 
 const fetchUser = async ({ postData }: { postData: any }) => {
-    const response = await Api.post<LoginRes>(`${getBaseUrl()}${loginUrl}`, { ...postData });
+    const response = await Api.post<LoginRes>(`${getBaseUrl()}${loginUrl}`, postData);
     return response.data;
 };
 

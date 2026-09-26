@@ -39,7 +39,7 @@ export const appSlice = createSlice({
         ...state,
         ...action.payload,
         isLoading: false,
-      }; 
+      };
     },
     userLoginLogOutAction: (state) => {
       AsyncStorage.removeItem(APP_CONST.USER_LOGIN);

@@ -18,7 +18,7 @@ import { checkTheme } from '../redux/themeStore/action';
 import { authSlice } from '../redux/authStore/authReducers';
 import LoadingView from '../components/loadingView';
 import AppStatusBar from '../components/appStatusBar/appStatusBar';
-import { APP_CONST, Colors } from '../Config/Colors';
+import { APP_CONST, Colors, CUSOM_DARK_THEM, CUSOM_DEFUALT_THEM } from '../Config/Colors';
 import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 import { appSlice } from '../redux/appStore/AppReducers';
 import { useTranslation } from 'react-i18next';
@@ -41,7 +41,6 @@ export const Navigation: FC = () => {
     const checkIfLoggedIn = () => {
         AsyncStorage.getItem(APP_CONST.USER_LOGIN)
             .then((value) => {
-                console.log("THe login val", value);
                 if (value) {
                     let jsonData = JSON.parse(value);
                     authDispatch(authSlice.actions.checkUserLoginAction(jsonData));
@@ -68,33 +67,7 @@ export const Navigation: FC = () => {
         });
     }
 
-    let CustomDefaultTheme = {
-        ...PaperDefaultTheme,
-        ...NavigationDefaultTheme,
-        colors: {
-            ...PaperDefaultTheme.colors,
-            ...NavigationDefaultTheme.colors,
-            accent: Colors.primary,
-            primary: Colors.primary,
-            card: 'rgb(255, 255, 255)',
-            // background: '#ffffff',
-            text: '#000000',
-        },
-    };
 
-    let CustomDarkTheme = {
-        ...PaperDarkTheme,
-        ...NavigationDarkTheme,
-        colors: {
-            ...PaperDarkTheme.colors,
-            ...NavigationDarkTheme.colors,
-            accent: Colors.primary,
-            primary: Colors.primary,
-            card: 'rgb(18, 18, 18)',
-            background: '#000000',
-            text: '#ffffff',
-        },
-    };
 
     if (authState.isLoading) {
         return <LoadingView />;
@@ -103,8 +76,7 @@ export const Navigation: FC = () => {
     return (
         <PaperProvider
             theme={{
-                dark: data.isDarkTheme,
-                colors: data.isDarkTheme ? CustomDarkTheme.colors : CustomDefaultTheme.colors,
+                colors: data.isDarkTheme ? CUSOM_DARK_THEM.colors : CUSOM_DEFUALT_THEM.colors,
             }}
         >
             <AppStatusBar isDarkTheme={data.isDarkTheme} />
@@ -112,7 +84,7 @@ export const Navigation: FC = () => {
                 ref={(navigatorRef: any) => {
                     setTopLevelNavigator(navigatorRef);
                 }}
-                theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}
+                theme={data.isDarkTheme ? CUSOM_DARK_THEM : CUSOM_DEFUALT_THEM}
             >
                 {authState.userLoggedIn ? (
                     <AppBottomTab />

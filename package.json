@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "5.7.1",
-    "@legendapp/list": "^3.3.7",
+    "@legendapp/list": "^3.4.0",
     "@react-native-async-storage/async-storage": "^3.1.1",
     "@react-native-vector-icons/material-design-icons": "^13.1.2",
     "@react-native/new-app-screen": "0.86.2",
@@ -51,6 +51,7 @@
     "react-hook-form": "7.84.0",
     "react-i18next": "16.5.4",
     "react-native": "0.86.2",
+    "react-native-bootsplash": "^7.3.2",
     "react-native-gesture-handler": "^3.1.0",
     "react-native-localize": "3.6.1",
     "react-native-pager-view": "8.0.0",
