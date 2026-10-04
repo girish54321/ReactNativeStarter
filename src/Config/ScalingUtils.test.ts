@@ -5,7 +5,7 @@ jest.mock('react-native', () => ({
 }));
 
 import { Dimensions } from 'react-native';
-import { scale, verticalScale, moderateScale } from './scalingUtils';
+import { scale, verticalScale, moderateScale } from './ScalingUtils';
 
 describe('scalingUtils', () => {
     const mockDimensions = Dimensions as jest.Mocked<typeof Dimensions>;
