@@ -1,10 +1,6 @@
-name: React Native CI
+name: React Native PR Checks
 
 on:
-  push:
-    branches:
-      - main
-
   pull_request:
     branches:
       - main
@@ -25,9 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      # - name: Run ESLint
-      #   run: npm run lint
 
       - name: Run tests
         run: npm test -- --watchAll=false
