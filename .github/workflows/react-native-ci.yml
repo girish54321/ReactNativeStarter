@@ -35,13 +35,14 @@ jobs:
       - name: Make Gradle executable
         run: chmod +x android/gradlew
 
-      - name: Build Android App Bundle DEV
+      - name: Build Android APK DEV
         run: |
           cd android
-          ./gradlew clean && ./gradlew assembleDevRelease
+          ./gradlew clean
+          ./gradlew assembleDevRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-release.apk
-          path: app/build/outputs/apk/dev/release/app-dev-release.apk
+          name: app-release
+          path: android/app/build/outputs/apk/dev/release/app-dev-release.apk
