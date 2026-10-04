@@ -31,3 +31,11 @@ jobs:
 
       - name: Run tests
         run: npm test -- --watchAll=false
+
+      - name: Make Gradle executable
+        run: chmod +x android/gradlew
+
+      - name: Build Android App Bundle DEV
+        run: |
+          cd android
+          ./gradlew clean && ./gradlew assembleDevRelease
