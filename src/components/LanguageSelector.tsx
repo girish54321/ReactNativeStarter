@@ -7,6 +7,8 @@ import {
 import { useTranslation } from 'react-i18next';
 import { List } from 'react-native-paper';
 import { Colors } from '../Config/Colors';
+import { appSlice } from '../redux/appStore/AppReducers';
+import { useAppDispatch } from '../hooks/redux-hooks';
 const { width } = Dimensions.get('window');
 const LANGS = [
   { lngCode: 'en', label: 'English' },
@@ -15,15 +17,20 @@ const LANGS = [
 
 const LanguageSelector = () => {
   const { t, i18n } = useTranslation();
+  const authDispatch = useAppDispatch();
+
   const [expanded, setExpanded] = React.useState(true);
   const handlePress = () => setExpanded(!expanded);
   const selectedLngCode = i18n.language;
-  const setLng = (lngCode: string) => i18n.changeLanguage(lngCode); 
+  const setLng = (lngCode: string) => {
+    i18n.changeLanguage(lngCode);
+    authDispatch(appSlice.actions.setAppLan(lngCode));
+  }
 
   return (
     <View style={styles.container}>
       <List.Accordion
-        title={t('languageSelector:selectLng')} 
+        title={t('languageSelector:selectLng')}
         expanded={expanded}
         onPress={handlePress}
         left={props => <List.Icon {...props} icon="translate" style={{ marginLeft: 6 }} />}>

@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { appStorageMMKV } from '../../App';
 import { Appearance } from 'react-native'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { APP_CONST, CUSOM_DARK_THEM, CUSOM_DEFUALT_THEM } from '../../Config/Colors';
@@ -13,7 +13,8 @@ const INITIAL_STATE: DARK_THEME_TYPE = {
 
 const changeThemAction = (state: DARK_THEME_TYPE, action: any) => {
   const jsonValue = JSON.stringify({ isDarkTheme: action.payload });
-  AsyncStorage.setItem(APP_CONST.CHECK_THEME, jsonValue);
+  appStorageMMKV.set(APP_CONST.CHECK_THEME, jsonValue)
+
   Appearance.setColorScheme(action.payload ? 'dark' : 'light')
   return {
     ...state,

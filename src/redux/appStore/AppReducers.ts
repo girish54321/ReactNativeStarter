@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { appStorageMMKV } from '../../App';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { APP_CONST } from '../../Config/Colors';
 
@@ -27,11 +27,11 @@ export const appSlice = createSlice({
     },
     userLoginAction: (state, action: PayloadAction<APP_STATE>) => {
       const jsonValue = JSON.stringify(action.payload);
-      AsyncStorage.setItem(APP_CONST.USER_LOGIN, jsonValue);
+      appStorageMMKV.set(APP_CONST.USER_LOGIN, jsonValue);
       return { ...state, ...action.payload };
     },
     setAppLan: (state, action: PayloadAction<string>) => {
-      AsyncStorage.setItem(APP_CONST.APP_LANG, action.payload);
+      appStorageMMKV.set(APP_CONST.APP_LANG, action.payload);
       return { ...state, appLang: action.payload };
     },
     checkUserLoginAction: (state, action: PayloadAction<APP_STATE>) => {
@@ -42,7 +42,7 @@ export const appSlice = createSlice({
       };
     },
     userLoginLogOutAction: (state) => {
-      AsyncStorage.removeItem(APP_CONST.USER_LOGIN);
+      appStorageMMKV.remove(APP_CONST.USER_LOGIN);
       return {
         ...state,
         isLoading: false,

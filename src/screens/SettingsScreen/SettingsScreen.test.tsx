@@ -3,31 +3,18 @@ import { describe, expect } from '@jest/globals';
 import { it } from '@jest/globals';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import SettingsScreen from './SettingsScreen';
-import { useTranslation } from 'react-i18next';
 import * as reactRedux from 'react-redux';
 import getTestId from '../../Config/helper';
 import { Alert } from 'react-native';
 
-jest.mock('react-i18next', () => ({
-    useTranslation: jest.fn(),
+jest.mock("../../../specs/NativeBuildEnv", () => ({
+    getBuildType: jest.fn(() => "DEV"),
+    getBaseUrl: jest.fn(() => "www.dev.com"),
 }));
 
 jest.mock('react-redux');
 
 describe('SettingsScreen', () => {
-    beforeEach(() => {
-        const useTranslationSpy = useTranslation;
-        const tSpy = jest.fn((str) => str);
-
-        //@ts-ignore
-        useTranslationSpy.mockReturnValue({
-            t: tSpy,
-            i18n: {
-                changeLanguage: () => new Promise(() => { }),
-            },
-        });
-    });
-
     afterEach(() => {
         jest.clearAllMocks();
     });
@@ -50,7 +37,7 @@ describe('SettingsScreen', () => {
 
         const { getByText } = render(<SettingsScreen />);
 
-        const logOutButton = getByText('logOut');
+        const logOutButton = getByText('Log Out');
         expect(logOutButton).toBeTruthy();
         fireEvent.press(logOutButton);
 
@@ -90,7 +77,7 @@ describe('SettingsScreen', () => {
 
         const { getByText } = render(<SettingsScreen />);
 
-        fireEvent.press(getByText('logOut'));
+        fireEvent.press(getByText('Log Out'));
 
         await waitFor(() => {
             expect(alertSpy).toHaveBeenCalled();
@@ -99,6 +86,8 @@ describe('SettingsScreen', () => {
     });
 
     it('should be able chnage them', () => {
+        //@ts-ignore
+        reactRedux.useSelector.mockImplementation((cb: any) => cb({ themeReducer: { 'isDarkTheme': true } }));
         const dispatch = jest.fn();
         //@ts-ignore
         reactRedux.useDispatch.mockReturnValue(dispatch);

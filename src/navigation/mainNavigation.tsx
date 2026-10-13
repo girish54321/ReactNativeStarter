@@ -1,15 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import {
     NavigationContainer,
-    DefaultTheme as NavigationDefaultTheme,
-    DarkTheme as NavigationDarkTheme,
 } from '@react-navigation/native';
 import {
     Provider as PaperProvider,
-    MD3LightTheme as PaperDefaultTheme,
-    MD3DarkTheme as PaperDarkTheme,
 } from 'react-native-paper';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { appStorageMMKV } from '../App';
 import { setTopLevelNavigator } from './NavigationService';
 import { AppBottomTab } from './appNavigation/AppNavigation';
 import AuthStackScreens from './authStack/AuthStackScreens';
@@ -18,7 +14,7 @@ import { checkTheme } from '../redux/themeStore/action';
 import { authSlice } from '../redux/authStore/authReducers';
 import LoadingView from '../components/loadingView';
 import AppStatusBar from '../components/appStatusBar/appStatusBar';
-import { APP_CONST, Colors, CUSOM_DARK_THEM, CUSOM_DEFUALT_THEM } from '../Config/Colors';
+import { APP_CONST, CUSOM_DARK_THEM, CUSOM_DEFUALT_THEM } from '../Config/Colors';
 import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 import { appSlice } from '../redux/appStore/AppReducers';
 import { useTranslation } from 'react-i18next';
@@ -39,32 +35,26 @@ export const Navigation: FC = () => {
     }, []);
 
     const checkIfLoggedIn = () => {
-        AsyncStorage.getItem(APP_CONST.USER_LOGIN)
-            .then((value) => {
-                if (value) {
-                    let jsonData = JSON.parse(value);
-                    authDispatch(authSlice.actions.checkUserLoginAction(jsonData));
-                } else {
-                    authDispatch(authSlice.actions.checkUserLoginAction(null));
-                }
-            })
-            .catch(() => {
-                authDispatch(authSlice.actions.checkUserLoginAction(null));
-            });
+        const logedInUser = appStorageMMKV.getString(APP_CONST.USER_LOGIN)
+        if (!logedInUser) {
+            authDispatch(authSlice.actions.checkUserLoginAction(null));
+            return
+        }
+        let jsonData = JSON.parse(logedInUser);
+        authDispatch(authSlice.actions.checkUserLoginAction(jsonData));
     };
 
     const checkAppLang = () => {
-        AsyncStorage.getItem(APP_CONST.APP_LANG).then((data) => {
-            if (data) {
-                console.log("Load Lang", data);
-                authDispatch && authDispatch(appSlice.actions.setAppLan(data));
-                i18n.changeLanguage(data);
-            } else {
-                authDispatch && authDispatch(appSlice.actions.setAppLan('en'));
-                console.log("Load Lang 2", 'en');
-                i18n.changeLanguage('en');
-            }
-        });
+        const appLang = appStorageMMKV.getString(APP_CONST.APP_LANG)
+
+        if (!appLang) {
+            authDispatch && authDispatch(appSlice.actions.setAppLan('en'));
+            i18n.changeLanguage('en');
+            return
+        }
+
+        authDispatch && authDispatch(appSlice.actions.setAppLan(appLang));
+        i18n.changeLanguage(appLang);
     }
 
 
