@@ -6,8 +6,8 @@ interface AUTH_TYPE {
   isLoading: boolean;
   userLoggedIn: boolean;
   userName: string | null;
-  email: string | null;
-  token: string | null;
+  email?: string | null;
+  token?: string | null;
 }
 
 const INITIAL_STATE: AUTH_TYPE = {

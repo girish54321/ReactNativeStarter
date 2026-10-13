@@ -8,7 +8,7 @@ import { authSlice } from '../../redux/authStore/authReducers';
 import { AppView } from '../../components/Flex/Flex';
 import LanguageSelector from '../../components/LanguageSelector';
 import getTestId from '../../Config/helper';
-
+//  import {Spec} from '../../../specs/NativeBuildEnv'
 const LeftIcon = (props: any) => <List.Icon {...props} icon="theme-light-dark" />;
 const ExitIcon = (props: any) => <List.Icon {...props} icon="exit-to-app" />;
 
